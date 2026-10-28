@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic Adventure - Interactive Educational Software</title>
+    <!-- Tailwind CSS for modern responsive layout and visual styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandPrimary: '#2457C5',
+                        brandOrange: '#FFB547',
+                        brandTurquoise: '#2CBFAE',
+                        brandBg: '#FFF9ED',
+                        brandSuccess: '#2E9D63',
+                        brandError: '#E76565',
+                        brandNavy: '#20304A',
+                    },
+                    fontFamily: {
+                        sans: ['Fredoka', 'Quicksand', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Fredoka', sans-serif;
+            background-color: #FFF9ED;
+            color: #20304A;
+        }
+        .bounce-gentle {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+        .fade-in {
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-3 sm:p-6">
+
+    <!-- MAIN APP CONTAINER -->
+    <div id="app-container" class="w-full max-w-4xl bg-white rounded-3xl shadow-2xl border-4 border-[#2457C5] overflow-hidden p-4 sm:p-8 relative">
+
+        <!-- SCREEN 1: ACADEMIC COVER PAGE -->
+        <section id="screen-cover" class="space-y-6 fade-in text-center">
+            <div class="border-b-2 border-gray-200 pb-4">
+                <span class="bg-[#2CBFAE] text-white text-xs sm:text-sm font-bold uppercase px-4 py-1.5 rounded-full tracking-wider">
+                    University Educational Technology Project
+                </span>
+                <h1 class="text-3xl sm:text-5xl font-extrabold text-[#2457C5] mt-3 tracking-wide">
+                    Arithmetic Adventure
+                </h1>
+                <p class="text-lg sm:text-xl font-semibold text-[#FFB547] bg-[#20304A] inline-block px-5 py-1 rounded-full mt-2">
+                    An Interactive Mathematics Learning Program
+                </p>
+            </div>
+
+            <!-- ACADEMIC INFORMATION PANEL -->
+            <div class="bg-[#FFF9ED] border-2 border-[#FFB547] rounded-2xl p-6 text-left shadow-inner space-y-4 max-w-2xl mx-auto">
+                <h2 class="text-xl font-bold text-[#2457C5] border-b pb-2 flex items-center gap-2">
+                    🎓 Academic Information Page
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm text-[#20304A]">
+                    <p><strong>Student Name:</strong> Ahmed Mohamed Mashhout Mohamed</p>
+                    <p><strong>Academic Year:</strong> Fourth Year</p>
+                    <p><strong>Specialization:</strong> Educational Technology Specialist</p>
+                    <p><strong>Training School:</strong> Jawad Hosny Official Language School</p>
+                    <p><strong>Training Period:</strong> 2026–2027</p>
+                </div>
+                <div class="border-t pt-3 text-sm text-[#20304A]">
+                    <p><strong>Supervisors:</strong></p>
+                    <ul class="list-disc list-inside pl-2 font-medium text-gray-700">
+                        <li>Dr. Shaimaa Saeed</li>
+                        <li>Assoc. Prof. Dr. Walid Abdelhamid</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- START PROGRAM BUTTON -->
+            <div class="pt-2">
+                <button onclick="navigateTo('screen-about')" class="bg-[#2457C5] hover:bg-blue-700 text-white font-extrabold text-xl px-10 py-4 rounded-2xl shadow-xl transition-all transform hover:scale-105 active:scale-95 border-b-4 border-blue-900 bounce-gentle">
+                    ▶ START PROGRAM
+                </button>
+            </div>
+        </section>
+
+        <!-- SCREEN 2: PROGRAM INFORMATION PAGE -->
+        <section id="screen-about" class="hidden space-y-6 fade-in">
+            <header class="border-b pb-3 text-center">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#2457C5]">About the Educational Program</h2>
+                <p class="text-sm text-gray-600">Comprehensive Program Overview & Instructional Plan</p>
+            </header>
+
+            <div class="space-y-4 max-h-[60vh] overflow-y-auto pr-2 text-sm text-[#20304A]">
+                <!-- Overview Card -->
+                <div class="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                    <h3 class="font-bold text-[#2457C5] text-base mb-1">📘 Program Overview</h3>
+                    <p class="leading-relaxed">
+                        Arithmetic Adventure is an interactive educational mathematics program designed to help Grade 4 primary-school students understand and practise arithmetic operations through simple explanations, worked examples, guided practice, interactive questions, and immediate feedback.
+                    </p>
+                </div>
+
+                <!-- Program Details -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div class="bg-amber-50 border border-amber-200 rounded-xl p-3">
+                        <h4 class="font-bold text-[#FFB547]">Target Learners</h4>
+                        <p>Grade 4 primary-school students studying mathematics in English.</p>
+                    </div>
+                    <div class="bg-teal-50 border border-teal-200 rounded-xl p-3">
+                        <h4 class="font-bold text-[#2CBFAE]">Instructional Language</h4>
+                        <p>English (Title, Instructions, Lessons, Quizzes, and Feedback).</p>
+                    </div>
+                </div>
+
+                <!-- Learning Objectives -->
+                <div class="bg-gray-50 border rounded-xl p-4">
+                    <h3 class="font-bold text-[#2457C5] text-base mb-2">🎯 Specific Learning Objectives</h3>
+                    <ul class="list-disc list-inside space-y-1 text-gray-700">
+                        <li>Solve addition problems involving multi-digit numbers.</li>
+                        <li>Subtract multi-digit numbers, including problems requiring regrouping.</li>
+                        <li>Understand multiplication as equal groups and place-value strategies.</li>
+                        <li>Solve simple division problems and relate division to multiplication.</li>
+                        <li>Apply the correct order of operations in mixed-operation problems.</li>
+                        <li>Solve simple real-life mathematical word problems.</li>
+                        <li>Check answers and learn from immediate corrective feedback.</li>
+                    </ul>
+                </div>
+
+                <!-- Academic Credits -->
+                <div class="bg-purple-50 border border-purple-200 rounded-xl p-4 text-xs">
+                    <h3 class="font-bold text-purple-900 mb-1">📜 Academic Credits</h3>
+                    <p><strong>Student Name:</strong> Ahmed Mohamed Mashhout Mohamed | Educational Technology Specialist</p>
+                    <p><strong>Training School:</strong> Jawad Hosny Official Language School (2026–2027)</p>
+                    <p><strong>Supervisors:</strong> Dr. Shaimaa Saeed & Assoc. Prof. Dr. Walid Abdelhamid</p>
+                </div>
+            </div>
+
+            <!-- NAVIGATION BUTTONS -->
+            <div class="flex justify-between items-center pt-2 border-t">
+                <button onclick="navigateTo('screen-cover')" class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold px-5 py-2.5 rounded-xl text-sm">
+                    ← Back to Cover
+                </button>
+                <button onclick="navigateTo('screen-game-welcome')" class="bg-[#2457C5] hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-xl text-base shadow-md border-b-4 border-blue-900">
+                    Begin Learning ➔
+                </button>
+            </div>
+        </section>
+
+        <!-- SCREEN 3: GAME WELCOME SCREEN -->
+        <section id="screen-game-welcome" class="hidden space-y-6 fade-in text-center">
+            <div class="bg-[#FFF9ED] border-2 border-[#2CBFAE] rounded-2xl p-6 shadow-inner">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-[#2457C5] mb-2">Welcome to Arithmetic Adventure! 🎉</h2>
+                <p class="text-base text-gray-700 max-w-xl mx-auto">
+                    Get ready to explore the world of numbers! Learn new mathematics skills, solve exciting challenges, earn points, and complete three adventure levels. Read each lesson carefully, practise what you learn, and use your mathematical thinking to reach the final challenge!
+                </p>
+            </div>
+
+            <!-- LEVEL CARDS -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
+                <div class="bg-blue-50 border-2 border-blue-200 rounded-2xl p-4 shadow-sm">
+                    <span class="text-xs font-bold bg-blue-200 text-blue-800 px-2.5 py-0.5 rounded-full">Level 1</span>
+                    <h3 class="font-bold text-[#2457C5] text-lg mt-2">Number Explorers</h3>
+                    <p class="text-xs text-gray-600 mt-1">Addition, Subtraction, Place Value & Regrouping.</p>
+                </div>
+                <div class="bg-amber-50 border-2 border-amber-200 rounded-2xl p-4 shadow-sm">
+                    <span class="text-xs font-bold bg-amber-200 text-amber-800 px-2.5 py-0.5 rounded-full">Level 2</span>
+                    <h3 class="font-bold text-[#FFB547] text-lg mt-2">Multiplication Mountain</h3>
+                    <p class="text-xs text-gray-600 mt-1">Multiplication, Division & Equal Sharing.</p>
+                </div>
+                <div class="bg-teal-50 border-2 border-teal-200 rounded-2xl p-4 shadow-sm">
+                    <span class="text-xs font-bold bg-teal-200 text-teal-800 px-2.5 py-0.5 rounded-full">Level 3</span>
+                    <h3 class="font-bold text-[#2CBFAE] text-lg mt-2">The Final Challenge</h3>
+                    <p class="text-xs text-gray-600 mt-1">Order of Operations & Multi-step Word Problems.</p>
+                </div>
+            </div>
+
+            <div class="pt-4 flex justify-between items-center">
+                <button onclick="navigateTo('screen-about')" class="text-gray-500 font-bold text-sm hover:underline">
+                    ← Back to About
+                </button>
+                <button onclick="startLevelLesson(1)" class="bg-[#2CBFAE] hover:bg-teal-600 text-white font-extrabold text-xl px-10 py-4 rounded-2xl shadow-lg border-b-4 border-teal-800 transition-all transform hover:scale-105">
+                    🚀 START ADVENTURE
+                </button>
+            </div>
+        </section>
+
+        <!-- SCREEN 4: INSTRUCTIONAL LESSON & QUICK PRACTICE -->
+        <section id="screen-lesson" class="hidden space-y-6 fade-in">
+            <header class="bg-[#20304A] text-white p-4 rounded-2xl flex justify-between items-center">
+                <div>
+                    <span id="lesson-level-tag" class="text-xs bg-[#FFB547] text-[#20304A] font-bold px-2.5 py-0.5 rounded-full">Level 1</span>
+                    <h2 id="lesson-title" class="text-xl font-bold">Level 1: Number Explorers</h2>
+                </div>
+                <span class="text-xs bg-white/20 px-3 py-1 rounded-lg">Interactive Lesson</span>
+            </header>
+
+            <!-- LESSON CONTENT -->
+            <div id="lesson-content-box" class="bg-[#FFF9ED] border-2 border-gray-200 rounded-2xl p-5 space-y-4 max-h-[50vh] overflow-y-auto text-sm">
+                <!-- Dynamically populated -->
+            </div>
+
+            <!-- QUICK PRACTICE SECTION -->
+            <div id="quick-practice-box" class="bg-white border-2 border-[#2CBFAE] rounded-2xl p-4 space-y-3">
+                <h3 class="font-bold text-[#2CBFAE] text-base flex items-center gap-2">
+                    ✏️ Quick Practice (Guided Check)
+                </h3>
+                <p id="qp-question-text" class="text-sm font-semibold text-[#20304A]"></p>
+                <div id="qp-options-container" class="grid grid-cols-1 sm:grid-cols-3 gap-2"></div>
+                <div id="qp-feedback" class="hidden text-xs font-bold p-2.5 rounded-xl text-center"></div>
+            </div>
+
+            <!-- NAVIGATION -->
+            <div class="flex justify-between items-center pt-2">
+                <button onclick="navigateTo('screen-game-welcome')" class="text-gray-500 text-sm font-bold hover:underline">
+                    ← Welcome Screen
+                </button>
+                <button id="btn-start-quiz" onclick="startLevelQuiz()" class="bg-[#2457C5] hover:bg-blue-700 text-white font-bold text-base px-8 py-3 rounded-xl shadow-md border-b-4 border-blue-900">
+                    Continue to Main Quiz ➔
+                </button>
+            </div>
+        </section>
+
+        <!-- SCREEN 5: MAIN QUIZ SCREEN -->
+        <section id="screen-quiz" class="hidden space-y-6 fade-in">
+            <header class="bg-[#20304A] text-white p-4 rounded-2xl flex justify-between items-center">
+                <div>
+                    <span id="quiz-level-tag" class="text-xs bg-[#2CBFAE] text-white font-bold px-2.5 py-0.5 rounded-full">Level 1 Quiz</span>
+                    <h2 id="quiz-title" class="text-xl font-bold">Level 1 Quiz</h2>
+                </div>
+                <div class="text-right">
+                    <div class="text-xs text-gray-300">Question <span id="q-num-display" class="font-bold text-white text-base">1</span>/5</div>
+                    <div class="text-xs font-bold text-[#FFB547]">Score: <span id="score-display">0</span>/15</div>
+                </div>
+            </header>
+
+            <!-- QUESTION CARD -->
+            <div class="bg-[#FFF9ED] border-2 border-gray-200 rounded-2xl p-6 space-y-4">
+                <h3 id="question-text" class="text-xl font-bold text-[#20304A]"></h3>
+                <div id="quiz-choices-container" class="grid grid-cols-1 gap-3"></div>
+            </div>
+
+            <!-- FEEDBACK BOX -->
+            <div id="quiz-feedback" class="hidden rounded-2xl p-4 text-center font-bold text-sm shadow-sm transition-all"></div>
+
+            <!-- NAVIGATION CONTROLS -->
+            <div class="flex justify-between items-center pt-2">
+                <button onclick="navigateTo('screen-game-welcome')" class="text-gray-500 text-sm font-bold hover:underline">
+                    ← Main Menu
+                </button>
+                <button id="btn-next-q" onclick="handleNextQuestion()" class="hidden bg-[#2CBFAE] hover:bg-teal-600 text-white font-bold text-base px-8 py-3 rounded-xl shadow-md border-b-4 border-teal-800">
+                    Next Question ➔
+                </button>
+            </div>
+        </section>
+
+        <!-- SCREEN 6: RESULTS SCREEN -->
+        <section id="screen-results" class="hidden space-y-6 fade-in text-center">
+            <div class="text-6xl bounce-gentle">🏆</div>
+            <h2 class="text-3xl font-extrabold text-[#2457C5]">Adventure Complete!</h2>
+            <p class="text-gray-600 text-sm max-w-md mx-auto">
+                Congratulations! You have completed all three levels of Arithmetic Adventure.
+            </p>
+
+            <div class="bg-[#FFF9ED] border-2 border-[#FFB547] rounded-2xl p-6 max-w-sm mx-auto shadow-inner space-y-2">
+                <h3 class="text-lg font-bold text-[#20304A]">Final Total Score</h3>
+                <div class="text-5xl font-extrabold text-[#2457C5]"><span id="final-score-val">0</span> / 15</div>
+                <p id="final-eval-msg" class="text-base font-bold text-[#2E9D63]"></p>
+            </div>
+
+            <div id="level-score-breakdown" class="grid grid-cols-3 gap-2 text-xs max-w-md mx-auto"></div>
+
+            <div class="pt-4">
+                <button onclick="resetFullProgram()" class="bg-[#FFB547] hover:bg-amber-500 text-[#20304A] font-extrabold text-lg px-8 py-3.5 rounded-2xl shadow-lg border-b-4 border-amber-700">
+                    🔄 Play Again
+                </button>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- PROGRAM LOGIC & CONTENT DATA -->
+    <script>
+        // PROGRAM DATA: Lessons, Worked Examples, Quick Practice, and 15 Main Questions
+        const programData = [
+            // LEVEL 1
+            {
+                levelNum: 1,
+                title: "Level 1: Number Explorers",
+                intro: "Welcome, Number Explorer! In this level, you will learn how to add and subtract multi-digit numbers. Follow the examples and practise your skills!",
+                lessonHtml: `
+                    <div class="space-y-3">
+                        <h4 class="font-bold text-[#2457C5] text-base">Lesson A — Addition</h4>
+                        <p>Addition combines two or more numbers to find their total. Always align digits by place value (ones, tens, hundreds).</p>
+                        <div class="bg-white p-3 border-l-4 border-[#2457C5] rounded-r-xl">
+                            <strong>Worked Example:</strong> 245 + 132 = ?<br>
+                            • Step 1: Add ones: 5 + 2 = 7<br>
+                            • Step 2: Add tens: 4 + 3 = 7<br>
+                            • Step 3: Add hundreds: 2 + 1 = 3<br>
+                            <strong>Answer: 377</strong>
+                        </div>
+                        <h4 class="font-bold text-[#2457C5] text-base pt-2">Lesson B — Subtraction</h4>
+                        <p>Subtraction finds the difference between numbers or tells how much remains. Regrouping is used when a column requires borrowing.</p>
+                        <div class="bg-white p-3 border-l-4 border-[#2457C5] rounded-r-xl">
+                            <strong>Worked Example:</strong> 600 − 275 = ?<br>
+                            • Regroup 600 into 5 hundreds, 9 tens, and 10 ones.<br>
+                            • Ones: 10 − 5 = 5 | Tens: 9 − 7 = 2 | Hundreds: 5 − 2 = 3<br>
+                            <strong>Answer: 325</strong>
+                        </div>
+                    </div>
+                `,
+                quickPractice: [
+                    {
+                        q: "Quick Practice 1: What is 125 + 25?",
+                        opts: ["140", "150", "160"],
+                        correct: 1,
+                        fb: ["Incorrect. Try adding 25 to 125.", "Correct! 125 + 25 = 150.", "Incorrect. Check your calculations."]
+                    },
+                    {
+                        q: "Quick Practice 2: What is 300 − 40?",
+                        opts: ["240", "260", "280"],
+                        correct: 1,
+                        fb: ["Incorrect. Subtract 4 tens from 30 tens.", "Correct! 300 − 40 = 260.", "Incorrect. Try again."]
+                    }
+                ],
+                questions: [
+                    { q: "What is 245 + 132?", opts: ["367", "377", "387"], correct: 1, cf: "Excellent! 245 + 132 = 377.", incf: "Try adding the ones, tens, and hundreds separately." },
+                    { q: "What is 600 − 275?", opts: ["315", "335", "325"], correct: 2, cf: "Great work! Remember that regrouping helps when subtracting from zero.", incf: "Check the regrouping steps and subtract the ones, tens, and hundreds carefully." },
+                    { q: "What is 326 + 147?", opts: ["463", "473", "483"], correct: 1, cf: "Correct! 326 + 147 = 473.", incf: "Try aligning the digits by place value and adding carefully." },
+                    { q: "What is 900 − 175?", opts: ["715", "725", "735"], correct: 1, cf: "Well done! 900 − 175 = 725.", incf: "Remember to regroup when subtracting from a number containing zeros." },
+                    { q: "What is 268 + 267?", opts: ["525", "545", "535"], correct: 2, cf: "Fantastic! 268 + 267 = 535.", incf: "Add the ones first, then the tens and hundreds. Check your carrying." }
+                ]
+            },
+            // LEVEL 2
+            {
+                levelNum: 2,
+                title: "Level 2: Multiplication Mountain",
+                intro: "You have mastered Level 1! Now climb Multiplication Mountain to learn how multiplication and division help us work with equal groups.",
+                lessonHtml: `
+                    <div class="space-y-3">
+                        <h4 class="font-bold text-[#FFB547] text-base">Lesson A — Multiplication</h4>
+                        <p>Multiplication is a quick way to add equal groups. Break numbers into tens and ones to multiply easily.</p>
+                        <div class="bg-white p-3 border-l-4 border-[#FFB547] rounded-r-xl">
+                            <strong>Worked Example:</strong> 24 × 3 = ?<br>
+                            • Tens: 20 × 3 = 60 | Ones: 4 × 3 = 12<br>
+                            • Combine: 60 + 12 = 72<br>
+                            <strong>Answer: 72</strong>
+                        </div>
+                        <h4 class="font-bold text-[#FFB547] text-base pt-2">Lesson B — Division</h4>
+                        <p>Division shares a quantity into equal groups. Relate division to multiplication facts.</p>
+                        <div class="bg-white p-3 border-l-4 border-[#FFB547] rounded-r-xl">
+                            <strong>Worked Example:</strong> 84 ÷ 7 = ?<br>
+                            • Think: What number multiplied by 7 equals 84?<br>
+                            • Since 7 × 12 = 84, then 84 ÷ 7 = 12.<br>
+                            <strong>Answer: 12</strong>
+                        </div>
+                    </div>
+                `,
+                quickPractice: [
+                    {
+                        q: "Quick Practice 1: What is 5 × 4?",
+                        opts: ["15", "20", "25"],
+                        correct: 1,
+                        fb: ["Incorrect.", "Correct! Five groups of four make twenty.", "Incorrect."]
+                    },
+                    {
+                        q: "Quick Practice 2: What is 12 ÷ 3?",
+                        opts: ["3", "4", "6"],
+                        correct: 1,
+                        fb: ["Incorrect.", "Correct! Twelve divided into three equal groups gives four in each group.", "Incorrect."]
+                    }
+                ],
+                questions: [
+                    { q: "What is 24 × 3?", opts: ["62", "72", "82"], correct: 1, cf: "Great job! 20 × 3 = 60 and 4 × 3 = 12. Together, they make 72.", incf: "Break 24 into 20 and 4, multiply each part by 3, and add the results." },
+                    { q: "What is 96 ÷ 8?", opts: ["10", "11", "12"], correct: 2, cf: "Correct! 8 × 12 = 96, so 96 ÷ 8 = 12.", incf: "Think about which number multiplied by 8 gives 96." },
+                    { q: "What is 12 × 9?", opts: ["98", "108", "118"], correct: 1, cf: "Excellent! 12 × 9 = 108.", incf: "Try multiplying 10 × 9 and 2 × 9, then add the results." },
+                    { q: "What is 144 ÷ 12?", opts: ["10", "11", "12"], correct: 2, cf: "Well done! 12 × 12 = 144.", incf: "Use multiplication to check which answer gives 144 when multiplied by 12." },
+                    { q: "What is 48 ÷ 4?", opts: ["10", "11", "12"], correct: 2, cf: "Correct! 48 divided into four equal groups gives 12 in each group.", incf: "Think about how many groups of four are in 48." }
+                ]
+            },
+            // LEVEL 3
+            {
+                levelNum: 3,
+                title: "Level 3: The Final Challenge",
+                intro: "You are at the Final Challenge! Apply order of operations and solve multi-step mathematical problems.",
+                lessonHtml: `
+                    <div class="space-y-3">
+                        <h4 class="font-bold text-[#2CBFAE] text-base">Lesson A — Order of Operations</h4>
+                        <p>Calculate inside parentheses first, then multiplication and division, and finally addition and subtraction.</p>
+                        <div class="bg-white p-3 border-l-4 border-[#2CBFAE] rounded-r-xl">
+                            <strong>Worked Example:</strong> 25 + 5 × 4 = ?<br>
+                            • Multiply first: 5 × 4 = 20<br>
+                            • Add: 25 + 20 = 45<br>
+                            <strong>Answer: 45</strong>
+                        </div>
+                        <h4 class="font-bold text-[#2CBFAE] text-base pt-2">Lesson B — Word Problems</h4>
+                        <div class="bg-white p-3 border-l-4 border-[#2CBFAE] rounded-r-xl">
+                            <strong>Worked Example:</strong> 7 baskets of 12 apples, gives away 15.<br>
+                            • Total apples: 7 × 12 = 84<br>
+                            • Subtract sold: 84 − 15 = 69<br>
+                            <strong>Answer: 69 apples</strong>
+                        </div>
+                    </div>
+                `,
+                quickPractice: [
+                    {
+                        q: "Quick Practice 1: What is 8 + 3 × 4?",
+                        opts: ["44", "20", "32"],
+                        correct: 1,
+                        fb: ["Incorrect.", "Correct! Multiply first: 3 × 4 = 12, then add 8.", "Incorrect."]
+                    },
+                    {
+                        q: "Quick Practice 2: What is 50 − 12?",
+                        opts: ["38", "42", "48"],
+                        correct: 0,
+                        fb: ["Correct! 50 − 12 = 38.", "Incorrect.", "Incorrect."]
+                    }
+                ],
+                questions: [
+                    { q: "What is 25 + 5 × 4?", opts: ["120", "45", "100"], correct: 1, cf: "Excellent! Multiply first: 5 × 4 = 20, then add 25.", incf: "Remember to multiply before adding." },
+                    { q: "A farmer has 7 baskets with 12 apples in each basket. He gives away 15 apples. How many apples remain?", opts: ["69", "74", "84"], correct: 0, cf: "Fantastic! 7 × 12 = 84, and 84 − 15 = 69.", incf: "First find the total apples, then subtract the apples given away." },
+                    { q: "(36 + 24) ÷ 6 = ?", opts: ["8", "10", "12"], correct: 1, cf: "Correct! Calculate inside the parentheses first: 60 ÷ 6 = 10.", incf: "Calculate the parentheses before dividing." },
+                    { q: "What is 50 + 12 × 5?", opts: ["110", "310", "250"], correct: 0, cf: "Great work! Multiply first: 12 × 5 = 60, then add 50.", incf: "Apply the order of operations: multiplication comes before addition." },
+                    { q: "What is 45 ÷ 5 + 8?", opts: ["15", "17", "20"], correct: 1, cf: "Excellent! Divide first: 45 ÷ 5 = 9, then add 8.", incf: "Perform the division before adding." }
+                ]
+            }
+        ];
+
+        // STATE VARIABLES
+        let currentLevelIdx = 0; // 0, 1, 2
+        let currentQIdx = 0; // 0..4
+        let totalScore = 0;
+        let levelScores = [0, 0, 0];
+        let currentQPIdx = 0;
+        let quizAnswered = false;
+
+        // NAVIGATION HANDLER
+        function navigateTo(screenId) {
+            const screens = ['screen-cover', 'screen-about', 'screen-game-welcome', 'screen-lesson', 'screen-quiz', 'screen-results'];
+            screens.forEach(id => {
+                const el = document.getElementById(id);
+                if (id === screenId) el.classList.remove('hidden');
+                else el.classList.add('hidden');
+            });
+        }
+
+        // START LESSON
+        function startLevelLesson(levelNum) {
+            currentLevelIdx = levelNum - 1;
+            currentQPIdx = 0;
+            const level = programData[currentLevelIdx];
+
+            document.getElementById('lesson-level-tag').innerText = `Level ${level.levelNum}`;
+            document.getElementById('lesson-title').innerText = level.title;
+            document.getElementById('lesson-content-box').innerHTML = level.lessonHtml;
+
+            loadQuickPractice();
+            navigateTo('screen-lesson');
+        }
+
+        // LOAD QUICK PRACTICE
+        function loadQuickPractice() {
+            const level = programData[currentLevelIdx];
+            const qp = level.quickPractice[currentQPIdx];
+
+            document.getElementById('qp-question-text').innerText = qp.q;
+            const container = document.getElementById('qp-options-container');
+            container.innerHTML = '';
+
+            const fbBox = document.getElementById('qp-feedback');
+            fbBox.className = "hidden text-xs font-bold p-2.5 rounded-xl text-center";
+
+            qp.opts.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "bg-gray-100 hover:bg-teal-50 text-[#20304A] font-bold p-2.5 rounded-xl border border-gray-300 text-xs text-left";
+                btn.innerText = opt;
+                btn.onclick = () => {
+                    fbBox.classList.remove('hidden');
+                    fbBox.innerText = qp.fb[idx];
+                    if (idx === qp.correct) {
+                        fbBox.className = "text-xs font-bold p-2.5 rounded-xl text-center bg-green-100 text-[#2E9D63] border border-[#2E9D63]";
+                    } else {
+                        fbBox.className = "text-xs font-bold p-2.5 rounded-xl text-center bg-red-100 text-[#E76565] border border-[#E76565]";
+                    }
+                };
+                container.appendChild(btn);
+            });
+        }
+
+        // START QUIZ FOR LEVEL
+        function startLevelQuiz() {
+            currentQIdx = 0;
+            quizAnswered = false;
+            loadQuizQuestion();
+            navigateTo('screen-quiz');
+        }
+
+        // LOAD QUIZ QUESTION
+        function loadQuizQuestion() {
+            quizAnswered = false;
+            const level = programData[currentLevelIdx];
+            const qData = level.questions[currentQIdx];
+
+            document.getElementById('quiz-level-tag').innerText = `Level ${level.levelNum} Quiz`;
+            document.getElementById('quiz-title').innerText = level.title;
+            document.getElementById('q-num-display').innerText = (currentLevelIdx * 5 + currentQIdx + 1);
+            document.getElementById('score-display').innerText = totalScore;
+            document.getElementById('question-text').innerText = qData.q;
+
+            const fbBox = document.getElementById('quiz-feedback');
+            fbBox.className = "hidden rounded-2xl p-4 text-center font-bold text-sm shadow-sm transition-all";
+            document.getElementById('btn-next-q').classList.add('hidden');
+
+            const container = document.getElementById('quiz-choices-container');
+            container.innerHTML = '';
+
+            const prefixes = ['A', 'B', 'C'];
+            qData.opts.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "quiz-choice-btn w-full bg-white hover:bg-blue-50 text-[#20304A] font-bold text-left px-4 py-3 rounded-xl border-2 border-gray-300 shadow-sm text-base flex items-center gap-3";
+                btn.innerHTML = `<span class="bg-[#2457C5] text-white rounded-lg px-2.5 py-0.5 text-xs font-extrabold">${prefixes[idx]}</span> ${opt}`;
+                btn.onclick = () => selectQuizAnswer(idx);
+                container.appendChild(btn);
+            });
+        }
+
+        // SELECT QUIZ ANSWER
+        function selectQuizAnswer(choiceIdx) {
+            if (quizAnswered) return;
+            quizAnswered = true;
+
+            const level = programData[currentLevelIdx];
+            const qData = level.questions[currentQIdx];
+            const isCorrect = (choiceIdx === qData.correct);
+
+            const buttons = document.querySelectorAll('.quiz-choice-btn');
+            buttons.forEach(b => b.disabled = true);
+
+            const fbBox = document.getElementById('quiz-feedback');
+
+            if (isCorrect) {
+                totalScore++;
+                levelScores[currentLevelIdx]++;
+                document.getElementById('score-display').innerText = totalScore;
+
+                buttons[choiceIdx].className = "quiz-choice-btn w-full bg-green-100 text-[#2E9D63] font-bold text-left px-4 py-3 rounded-xl border-2 border-[#2E9D63] text-base flex items-center gap-3";
+                fbBox.classList.remove('hidden');
+                fbBox.className = "rounded-2xl p-4 text-center font-bold text-sm bg-green-100 text-[#2E9D63] border-2 border-[#2E9D63]";
+                fbBox.innerText = qData.cf;
+            } else {
+                buttons[choiceIdx].className = "quiz-choice-btn w-full bg-red-100 text-[#E76565] font-bold text-left px-4 py-3 rounded-xl border-2 border-[#E76565] text-base flex items-center gap-3";
+                buttons[qData.correct].className = "quiz-choice-btn w-full bg-green-50 text-[#2E9D63] font-bold text-left px-4 py-3 rounded-xl border-2 border-[#2E9D63] text-base flex items-center gap-3";
+
+                fbBox.classList.remove('hidden');
+                fbBox.className = "rounded-2xl p-4 text-center font-bold text-sm bg-red-100 text-[#E76565] border-2 border-[#E76565]";
+                fbBox.innerText = qData.incf;
+            }
+
+            const btnNext = document.getElementById('btn-next-q');
+            btnNext.classList.remove('hidden');
+            if (currentQIdx === 4 && currentLevelIdx === 2) {
+                btnNext.innerText = "View Final Results 🏆";
+            } else if (currentQIdx === 4) {
+                btnNext.innerText = `Continue to Level ${currentLevelIdx + 2} Lesson ➔`;
+            } else {
+                btnNext.innerText = "Next Question ➔";
+            }
+        }
+
+        // NEXT QUESTION OR LEVEL
+        function handleNextQuestion() {
+            if (currentQIdx < 4) {
+                currentQIdx++;
+                loadQuizQuestion();
+            } else if (currentLevelIdx < 2) {
+                startLevelLesson(currentLevelIdx + 2);
+            } else {
+                showFinalResults();
+            }
+        }
+
+        // SHOW FINAL RESULTS
+        function showFinalResults() {
+            document.getElementById('final-score-val').innerText = totalScore;
+            const evalMsg = document.getElementById('final-eval-msg');
+
+            if (totalScore >= 13) {
+                evalMsg.innerText = "13–15: Outstanding! You are a Mathematics Adventure Champion!";
+                evalMsg.className = "text-base font-bold text-[#2E9D63]";
+            } else if (totalScore >= 10) {
+                evalMsg.innerText = "10–12: Great work! Keep practising to become even stronger!";
+                evalMsg.className = "text-base font-bold text-[#2457C5]";
+            } else if (totalScore >= 7) {
+                evalMsg.innerText = "7–9: Good effort! Review the lessons and try again!";
+                evalMsg.className = "text-base font-bold text-[#FFB547]";
+            } else {
+                evalMsg.innerText = "0–6: Keep learning! Review the examples and take the challenge again!";
+                evalMsg.className = "text-base font-bold text-[#E76565]";
+            }
+
+            const breakdown = document.getElementById('level-score-breakdown');
+            breakdown.innerHTML = `
+                <div class="bg-white border rounded-lg p-2 text-center">
+                    <span class="block text-gray-500">Level 1</span>
+                    <span class="font-bold text-[#2457C5]">${levelScores[0]}/5</span>
+                </div>
+                <div class="bg-white border rounded-lg p-2 text-center">
+                    <span class="block text-gray-500">Level 2</span>
+                    <span class="font-bold text-[#FFB547]">${levelScores[1]}/5</span>
+                </div>
+                <div class="bg-white border rounded-lg p-2 text-center">
+                    <span class="block text-gray-500">Level 3</span>
+                    <span class="font-bold text-[#2CBFAE]">${levelScores[2]}/5</span>
+                </div>
+            `;
+
+            navigateTo('screen-results');
+        }
+
+        // RESET PROGRAM
+        function resetFullProgram() {
+            currentLevelIdx = 0;
+            currentQIdx = 0;
+            totalScore = 0;
+            levelScores = [0, 0, 0];
+            navigateTo('screen-cover');
+        }
+    </script>
+</body>
+</html>
